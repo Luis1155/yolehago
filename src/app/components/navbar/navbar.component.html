@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" [routerLink]="['/home']"> <strong> Yo Le Hago </strong> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isLogged" >
+        <a class="nav-link" [routerLink]="['/profile']">Perfil</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="navbar-item" *ngIf="!isLogged">
+        <a class="nav-link" [routerLink]="['/register']">Registrar</a>
+      </li>
+      <li class="navbar-item" *ngIf="!isLogged">
+        <a class="nav-link" [routerLink]="['/login']">Ingresar</a>
+      </li>
+      <li class="navbar-item" *ngIf="isLogged">
+        <a class="nav-link" [routerLink]="['/options']">Opciones</a>
+      </li>
+      <li class="navbar-item" *ngIf="isLogged">
+          <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
+        </li>
+    </ul>
+
+  </div>
+</nav>

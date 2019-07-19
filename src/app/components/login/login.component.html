@@ -1,0 +1,39 @@
+<section id="ingreso">
+  <div class="container mt-4">
+
+    <div class="row ">
+
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+
+        <div class="card">
+          <div class="card-body text-center">
+            <form #formRegister="ngForm" (ngSubmit)="onLoginUser()">
+              <h1 class="h3 mb-3 font-weight-normal">INGRESAR</h1>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required
+                  minlength="8">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password"
+                  [(ngModel)]="password" required minlength="5" maxlength="10">
+              </div>
+              <hr>
+              <div class="alert alert-danger" role="alert" *ngIf="error"> No estás registrado!
+                <a class="nav-link" [routerLink]="['/register']">Registrar</a>
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
+              <ng-template #btnDisabled>
+                <button type="submit" disabled=true class="btn btn-lg btn-secondary btn-block">Ingresar</button>
+              </ng-template>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>

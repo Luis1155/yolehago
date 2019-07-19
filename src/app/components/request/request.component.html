@@ -1,0 +1,84 @@
+<section id="request">
+  <div class="container mt-4">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-8 mx-auto">
+
+        <div class="card">
+          <div class="card-body">
+            <form>
+
+              <div class="form-row">
+                <div class="col form-group text-center" data-toggle="buttons">
+
+                  <div class="form-check-inline">
+                    <label class="btn btn-outline-success">
+                      <input type="radio" id="labor1" name="labors" style="display: none">
+                      Plomero</label>
+                  </div>
+
+                  <div class="form-check-inline">
+                    <label class="btn btn-outline-success">
+                      <input type="radio" id="labor2" name="labors" style="display: none">
+                      Generales</label>
+                  </div>
+
+                  <div class="form-check-inline">
+                    <label class="btn btn-outline-success">
+                      <input type="radio" id="labor3" name="labors" style="display: none">
+                      Electricista</label>
+                  </div>
+
+                  <div class="form-check-inline">
+                    <label class="btn btn-outline-success">
+                      <input type="radio" id="labor4" name="labors" style="display: none">
+                      Limpieza</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="InputDescripcion">Descripción del servicio que necesistas</label>
+                <textarea rows="3" class="form-control" id="InputDescripcion"
+                  placeholder="Describe los detalles del servicio que solicitas..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="InputDireccion">Dirección para el servicio</label>
+                <textarea class="form-control" id="InputDireccion"
+                  placeholder="Ingrese dirección donde se realizara el servicio..."></textarea>
+              </div>
+
+            </form>
+
+            <button type="submit" class="btn btn-primary mt-2 btn-block" data-toggle="modal"
+              data-target="#exampleModal">
+              Solicitar
+            </button>
+
+            <div class="modal fade" id="exampleModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Solicitud enviada</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Espere a que su solicitud sea aceptada.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</section>

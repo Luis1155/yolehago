@@ -1,0 +1,19 @@
+<div class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3 mt-2" style="width: 50%" *ngFor="let serv of servicios">
+
+      <div class="card">
+        <img src="{{serv.imagen}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{serv.nombre}}</h5>
+          <p class="card-subtitle text-muted">{{serv.descripcion}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <button [routerLink]="['/request']" class="btn btn-outline-success btn-block"> Solicitar </button>
+
+</div>
