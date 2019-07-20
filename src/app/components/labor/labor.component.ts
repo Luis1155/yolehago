@@ -45,7 +45,7 @@ export class LaborComponent implements OnInit {
 
     // this.dataApi.updateBook(this.profileAux);
     // formProfile.resetForm();
-    // this.router.navigate(['list-request']);
+    this.router.navigate(['home']);
   }
 
 }
