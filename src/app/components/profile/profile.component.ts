@@ -22,19 +22,13 @@ export class ProfileComponent implements OnInit {
     urlImagen: ''
   }
 
+  uidUser: string;
 
   ngOnInit() {
     this.authService.isAuth().subscribe(user => {
-      if (user) {
-        const auxId = user.uid;
-        console.log('auxID', auxId);
-        console.log('USER', user);
-        // this.getProfile(auxId);
-        this.profile.nombre = user.displayName;
-        this.profile.email = user.email;
-      }
+      this.uidUser = user.uid;
     });
-
+    this.getProfile('lEMA5fK6JfLPAU9ZR4D1');
 
   }
 

@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
   public email: string = '';
   public password: string = '';
 
+  public errorPassword: boolean = false;
+
   ngOnInit() {
   }
 
@@ -26,6 +28,7 @@ export class RegisterComponent implements OnInit {
       }).catch(err => {
         console.log('err', err.message)
         console.log('Aqui estoy');
+        this.errorPassword = true;
       });
   }
 

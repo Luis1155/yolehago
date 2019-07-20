@@ -1,5 +1,6 @@
 export interface ProfileInterface {
   id ?: string;
+  idUser ?: string;
   email ?: string;
   nombre ?: string;
   apellidos ?: string;

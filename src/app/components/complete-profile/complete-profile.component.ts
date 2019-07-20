@@ -22,20 +22,14 @@ export class CompleteProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.getListProfiles();
-
-  }
-
-  onCompleteUser() {
+    this.getListProfiles();
     this.authService.isAuth().subscribe(user => {
-      if (user) {
-        user.updateProfile({
-          displayName: this.nombre + this.apellidos
-        }).then(() => {
-          this.router.navigate(['home']);
-        }).catch((error) => console.log('error', error));
-      }
-    });
+      this.pService.selectedProfile.idUser = user.uid;
+      this.pService.selectedProfile.email = user.email;
+      this.pService.selectedProfile.urlImagen = 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Ff%2Ff7%2FNeon-logo.svg%2F1200px-Neon-logo.svg.png&f=1';
+
+    })
+
   }
 
   getListProfiles() {

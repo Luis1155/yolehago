@@ -4,12 +4,14 @@
     <div class="card">
       <div class="card-body">
 
-        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onCompleteUser()">
+        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onSaveProfile(formProfile)">
 
           <div class="form-row">
 
             <input type="hidden" name="id" [(ngModel)]="this.pService.selectedProfile.id">
             <input type="hidden" name="email" [(ngModel)]="this.pService.selectedProfile.email">
+            <input type="hidden" name="idUser" [(ngModel)]="this.pService.selectedProfile.idUser">
+            <input type="hidden" name="urlImagen" [(ngModel)]="this.pService.selectedProfile.urlImagen">
 
             <div class="col form-group">
               <label for="nombre"> <strong>Nombre</strong> </label>

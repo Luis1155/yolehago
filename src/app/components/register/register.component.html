@@ -18,6 +18,9 @@
               </div>
               <hr>
 
+              <div class="alert alert-danger" role="alert" *ngIf="errorPassword" >
+                <p class="alert-heading">La contraseña debe tener mas de 6 caracteres.</p>
+              </div>
               <br>
               <button type="submit" class="btn btn-lg btn-primary btn-block">Registrar</button>
               <ng-template #btnDisabled>
