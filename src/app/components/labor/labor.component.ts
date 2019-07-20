@@ -13,23 +13,32 @@ import { Router } from '@angular/router';
 })
 export class LaborComponent implements OnInit {
 
-  constructor(private pService: ProfileService, private authService: AuthService, private router: Router) { }
+  constructor(public pService: ProfileService, private authService: AuthService, private router: Router) { }
 
   public profiles: ProfileInterface[];
 
   public profileAux: ProfileInterface = {
     id: '',
+    oficio: '',
+    experiencia: ''
+  };
+  public profileAux1: ProfileInterface = {
+    id: '',
     idUser: '',
+    email: '',
+    nombre: '',
+    apellidos: '',
+    celNumero: '',
+    urlImagen: '',
     oficio: '',
     experiencia: ''
   };
 
+
+  public ID: '';
+
   ngOnInit() {
     this.getListProfiles();
-    this.authService.isAuth().subscribe(user => {
-      this.profileAux.idUser = user.uid;
-      console.log('OnInit', this.profileAux);
-    });
   }
 
   getListProfiles() {
@@ -41,11 +50,15 @@ export class LaborComponent implements OnInit {
 
   onUpdateLabor(formProfile: NgForm): void {
     console.log(formProfile.value);
-    console.log('Update',this.profileAux);
+    this.profileAux.id = formProfile.value.id;
+    this.profileAux.oficio = formProfile.value.oficio;
+    this.profileAux.experiencia = formProfile.value.experiencia;
+    console.log('Update', this.profileAux);
 
-    // this.dataApi.updateBook(this.profileAux);
-    // formProfile.resetForm();
+    this.pService.updateProfile(this.profileAux);
     this.router.navigate(['home']);
   }
+
+
 
 }

@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
 
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" *ngIf="isLogged" >
+      <li class="nav-item" routerLinkActive="active" *ngIf="isLogged">
         <a class="nav-link" [routerLink]="['/profile']">Perfil</a>
       </li>
     </ul>
@@ -21,12 +21,17 @@
       <li class="navbar-item" *ngIf="!isLogged">
         <a class="nav-link" [routerLink]="['/login']">Ingresar</a>
       </li>
-      <li class="navbar-item" *ngIf="isLogged">
-        <a class="nav-link" [routerLink]="['/complete-profile']">Opciones</a>
+      <li class="nav-item dropdown" *ngIf="isLogged">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"> Opciones </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/list-request']">Solicitudes de trabajo</a>
+          <a class="dropdown-item" [routerLink]="['/list-workers']">Listar trabajadores</a>
+        </div>
       </li>
       <li class="navbar-item" *ngIf="isLogged">
-          <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
-        </li>
+        <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
+      </li>
     </ul>
 
   </div>

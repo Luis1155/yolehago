@@ -4,22 +4,28 @@
 
     <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
 
-      <div class="card" *ngFor="let profile of profiles; index as i">
+      <div class="card" *ngFor="let profile of profiles">
         <div *ngIf="profile.idUser == this.profileAux.idUser" class="text-center">
           <img src="{{profile.urlImagen}}" class="rounded-circle img-thumbnail" style="width: 60%; align-self: center;"
-            alt="profile">
+          alt="profile">
           <div class="card-body text-center">
             <h3 class="card-title">{{profile.nombre}} {{profile.apellidos}}</h3>
             <h5> {{profile.celNumero}} </h5>
+            <p *ngIf="profile.oficio">Oficio: {{profile.oficio}} </p>
             <p> {{profile.email}} </p>
+            
+            <input type="hidden" class="form-control" name=id [(ngModel)]="this.profileAux.id">
           </div>
+
+          <button *ngIf="!modLabor" (click)="onPreUpdateProfile(profile)" class="btn btn-primary btn-block mt-2 border" data-toggle="modal" data-target="#modalBook">Modo Laboral</button>
+
+          <button (click)="onPreUpdateProfile(profile)" [routerLink]="['/complete-profile']" class="btn btn-primary btn-block mt-2 border"> Editar perfil </button>
+
         </div>
-
-
       </div>
-      <button [routerLink]="['/labor']" class="btn btn-primary btn-block mt-2 border">Modo Laboral</button>
-
 
     </div>
   </div>
 </div>
+
+<app-labor></app-labor>

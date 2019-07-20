@@ -1,53 +1,70 @@
-<div class="container mt-4">
+<div class="modal fade" id="modalBook" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">
+          Con el modo laboral tu podras ofrecer algun oficio o trabajo que realices
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-8 mx-auto">
-      <div class="card">
-        <div class="card-body">
 
-          <form name="formLabor" #formLabor="ngForm" (ngSubmit)="onUpdateLabor(formLabor)">
+        <form name="formLabor" #formLabor="ngForm" (ngSubmit)="onUpdateLabor(formLabor)">
 
-            <div *ngFor="let profile of profiles">
-              <div *ngIf="profile.idUser == this.profileAux.idUser">
-                <input type="hidden" placeholder={{profile.id}} name=id ngModel>
-              </div>
-            </div>
-            <div class="form-row">
+          <div class="form-row">
 
-              <div class="form-group">
-                <label for="categoria"> <strong> Categoria </strong>
-                  <p>Selecciones el oficio que realizas</p>
-                </label>
-                <select name="categoria" class="form-control" placeholder="" ngModel>
-                  <option value="Plormero">Plomero</option>
-                  <option value="Generales">Generales</option>
-                  <option value="Electricista">Electricista</option>
-                  <option value="Limpieza">Limpieza</option>
-                </select>
-              </div>
-            </div>
+            <input type="text" name="id" [(ngModel)]="this.pService.selectedProfile.id">
 
             <div class="form-group">
-              <label for="InputDescripcion">
-                <h5>Experiencias de trabajo</h5>
+              <label for="oficio"> <strong> Oficio </strong>
+                <p>Selecciona el oficio que realizas</p>
               </label>
-              <textarea rows="3" class="form-control" name="descripcion"
-                placeholder="Escribe una breve descripción de trabajos que hayas realizado..." ngModel></textarea>
+              <select name="oficio" class="form-control" placeholder=""
+                [(ngModel)]="this.pService.selectedProfile.oficio">
+                <option value="Plormero">Plomero</option>
+                <option value="Generales">Generales</option>
+                <option value="Electricista">Electricista</option>
+                <option value="Limpieza">Limpieza</option>
+              </select>
             </div>
+          </div>
 
-            <label for="InputImagen2">
-              <h5>Anexos</h5>
+          <div class="form-group">
+            <label for="experiencia">
+              <h5>Experiencias de trabajo</h5>
             </label>
-            <div class="form-group custom-file">
-              <label class="custom-file-label" for="InputImagenes">Elegir imagenes de experiencia</label>
-              <input type="file" class="form-control-file custom-file-input" id="urlImage">
-            </div>
+            <textarea rows="3" class="form-control" name="experiencia"
+              placeholder="Escribe una breve descripción de trabajos que hayas realizado..."
+              [(ngModel)]="this.pService.selectedProfile.experiencia"></textarea>
+          </div>
 
-            <button type="submit" class="btn btn-primary mt-2 btn-block ">Solicitar</button>
+          <label for="InputImagen2">
+            <h5>Anexos</h5>
+          </label>
+          <div class="form-group custom-file">
+            <label class="custom-file-label" for="InputImagenes">Elegir imagenes de experiencia</label>
+            <input type="file" class="form-control-file custom-file-input" id="urlImage">
+          </div>
 
-          </form>
-        </div>
+          <button type="submit" class="btn btn-primary mt-2 btn-block ">Guardar</button>
+
+        </form>
+
       </div>
+
     </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <div class="card">
+
+    <button [routerLink]="['/list-request']" class="btn btn-primary btn-block border">Ver solicitudes de
+      trabajo</button>
+
   </div>
 </div>

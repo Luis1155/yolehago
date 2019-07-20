@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ProfileInterface } from '../../models/profile';
+import { ProfileService } from '../../services/profile.service';
 
 
 @Component({
@@ -10,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private pService: ProfileService) { }
 
-  public email: string = '';
-  public password: string = '';
+  public email = '';
+  public password = '';
 
-  public errorPassword: boolean = false;
+  public errorPassword = false;
+  private profile: ProfileInterface;
 
   ngOnInit() {
   }
@@ -26,10 +29,9 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['complete-profile']);
         console.log('Aqui estoy 1');
       }).catch(err => {
-        console.log('err', err.message)
+        console.log('err', err.message);
         console.log('Aqui estoy');
         this.errorPassword = true;
       });
   }
-
 }

@@ -3,6 +3,7 @@ import { ProfileService } from '../../services/profile.service';
 import { ProfileInterface } from '../../models/profile';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -18,13 +19,11 @@ export class ProfileComponent implements OnInit {
   public profileAux: ProfileInterface = {
     id: '',
     idUser: '',
-    email: '',
-    nombre: '',
-    apellidos: '',
-    celNumero: '',
-    urlImagen: ''
-  }
+    oficio: '',
+    experiencia: ''
+  };
 
+  public modLabor = false;
   uidUser: string;
 
   ngOnInit() {
@@ -52,5 +51,12 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  onLabor(): void {
+    this.modLabor = !this.modLabor;
+  }
 
+  onPreUpdateProfile( profile: ProfileInterface ) {
+    console.log('PROFILESelect', profile);
+    this.pService.selectedProfile = Object.assign({}, profile);
+  }
 }

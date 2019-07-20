@@ -3,13 +3,14 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { ProfileInterface } from '../models/profile';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  constructor(private afStore: AngularFirestore) { }
+  constructor(private afStore: AngularFirestore, private authService: AuthService) { }
 
   private profilesCollection: AngularFirestoreCollection<ProfileInterface>;
   private profiles: Observable<ProfileInterface[]>;
@@ -55,5 +56,5 @@ export class ProfileService {
     this.profileDoc.update(profile);
   }
 
-}
+  }
 

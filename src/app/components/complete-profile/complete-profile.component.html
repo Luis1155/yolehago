@@ -4,21 +4,21 @@
     <div class="card">
       <div class="card-body">
 
-        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onSaveProfileAux(formProfile)">
+        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onSaveProfile(formProfile)">
 
           <div class="form-row">
 
-            <input type="hidden" name="id" [(ngModel)]="this.profileAux.id">
+            <input type="hidden" name="id" [(ngModel)]="this.pService.selectedProfile.id">
 
             <div class="col form-group">
               <label for="nombre"> <strong>Nombre</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar nombre" name="nombre"
-                [(ngModel)]="this.profileAux.nombre">
+                [(ngModel)]="this.pService.selectedProfile.nombre">
             </div>
             <div class="col form-group">
               <label for="apellidos"> <strong>Apellidos</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar apellidos" name="apellidos"
-              [(ngModel)]="this.profileAux.apellidos">
+              [(ngModel)]="this.pService.selectedProfile.apellidos">
             </div>
 
           </div>
@@ -26,13 +26,13 @@
           <div class="form-group">
             <label for="celNumero"> <strong>Numero Celular</strong> </label>
             <input type="text" class="form-control" placeholder="Ingresar número celular" name="celNumero"
-              [(ngModel)]="this.profileAux.celNumero">
+              [(ngModel)]="this.pService.selectedProfile.celNumero">
           </div>
 
           <label for="InputImagen2"> <strong>Imagen de perfil</strong> </label>
           <div class="form-group custom-file">
             <label class="custom-file-label">Elegir imagen de perfil</label>
-            <input type="file" class="form-control-file custom-file-input" id="InputImagen">
+            <input type="file" class="form-control-file custom-file-input" id="urlImagen">
           </div>
 
           <br>
