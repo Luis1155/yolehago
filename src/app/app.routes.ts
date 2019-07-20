@@ -8,6 +8,7 @@ import { LaborComponent } from './components/labor/labor.component';
 import { CompleteProfileComponent } from './components/complete-profile/complete-profile.component';
 import { ListRequestComponent } from './components/list-request/list-request.component';
 import { ListWorkersComponent } from './components/list-workers/list-workers.component';
+import { HelpComponent } from './components/help/help.component';
 
 const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const ROUTES: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'request', component: RequestComponent },
   { path: 'labor', component: LaborComponent },
+  { path: 'help', component: HelpComponent },
   { path: 'complete-profile', component: CompleteProfileComponent},
   { path: 'list-request', component: ListRequestComponent},
   { path: 'list-workers', component: ListWorkersComponent},

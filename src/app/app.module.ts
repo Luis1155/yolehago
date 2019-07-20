@@ -23,7 +23,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { ListRequestComponent } from './components/list-request/list-request.component';
-import { ListWorkersComponent } from './components/list-workers/list-workers.component'
+import { ListWorkersComponent } from './components/list-workers/list-workers.component';
+import { HelpComponent } from './components/help/help.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ListWorkersComponent } from './components/list-workers/list-workers.com
     RequestComponent,
     CompleteProfileComponent,
     ListRequestComponent,
-    ListWorkersComponent
+    ListWorkersComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

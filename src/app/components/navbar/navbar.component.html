@@ -29,6 +29,9 @@
           <a class="dropdown-item" [routerLink]="['/list-workers']">Listar trabajadores</a>
         </div>
       </li>
+      <li class="navbar-item" >
+        <a class="nav-link" [routerLink]="['/help']">Ayuda</a>
+      </li>
       <li class="navbar-item" *ngIf="isLogged">
         <a href="#" class="nav-link" (click)="onLogout()">Salir</a>
       </li>
