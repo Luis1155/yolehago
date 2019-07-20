@@ -14,6 +14,7 @@
   </div>
 
   <br>
-  <button [routerLink]="['/request']" class="btn btn-primary btn-block"> Solicitar </button>
+  <button *ngIf="isLogged"  [routerLink]="['/request']" class="btn btn-primary btn-block"> Solicitar </button>
+  <button *ngIf="!isLogged"  [routerLink]="['/register']" class="btn btn-primary btn-block"> Registrarse </button>
 
 </div>
