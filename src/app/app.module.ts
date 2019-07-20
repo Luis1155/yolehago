@@ -21,7 +21,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage'
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ListRequestComponent } from './components/list-request/list-request.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage'
     LoginComponent,
     LaborComponent,
     RequestComponent,
-    CompleteProfileComponent
+    CompleteProfileComponent,
+    ListRequestComponent
   ],
   imports: [
     BrowserModule,

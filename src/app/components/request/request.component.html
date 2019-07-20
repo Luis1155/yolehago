@@ -6,56 +6,47 @@
 
         <div class="card">
           <div class="card-body">
-            <form>
+            <form name="formRequest" #formRequest="ngForm" (ngSubmit)="onSaveRequest(formRequest)">
 
               <div class="form-row">
-                <div class="col form-group text-center" data-toggle="buttons">
 
-                  <div class="form-check-inline">
-                    <label class="btn btn-outline-success">
-                      <input type="radio" id="labor1" name="labors" style="display: none">
-                      Plomero</label>
-                  </div>
-
-                  <div class="form-check-inline">
-                    <label class="btn btn-outline-success">
-                      <input type="radio" id="labor2" name="labors" style="display: none">
-                      Generales</label>
-                  </div>
-
-                  <div class="form-check-inline">
-                    <label class="btn btn-outline-success">
-                      <input type="radio" id="labor3" name="labors" style="display: none">
-                      Electricista</label>
-                  </div>
-
-                  <div class="form-check-inline">
-                    <label class="btn btn-outline-success">
-                      <input type="radio" id="labor4" name="labors" style="display: none">
-                      Limpieza</label>
-                  </div>
+                <div class="form-group">
+                  <label for="categoria"> <strong> Categoria </strong>
+                    <p>Selecciones la que más se adecua a su necesidad</p>
+                  </label>
+                  <select name="categoria" class="form-control" placeholder="" ngModel>
+                    <option value="Plormero">Plomero</option>
+                    <option value="Generales">Generales</option>
+                    <option value="Electricista">Electricista</option>
+                    <option value="Limpieza">Limpieza</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="InputDescripcion">Descripción del servicio que necesistas</label>
-                <textarea rows="3" class="form-control" id="InputDescripcion"
-                  placeholder="Describe los detalles del servicio que solicitas..."></textarea>
+                <label for="descripcion"> <strong> Descripción </strong></label>
+                <textarea rows="3" class="form-control" name="descripcion"
+                  placeholder="Los detalles del servicio que requieres..." ngModel></textarea>
               </div>
               <div class="form-group">
-                <label for="InputDireccion">Dirección para el servicio</label>
-                <textarea class="form-control" id="InputDireccion"
-                  placeholder="Ingrese dirección donde se realizara el servicio..."></textarea>
+                <label for="direccion"> <strong> Dirección </strong></label>
+                <textarea class="form-control" name="direccion" placeholder="Ingrese lugar donde se realizara..."
+                  ngModel></textarea>
               </div>
 
+              <div class="form-group">
+                <label for="numeroCon"> <strong> Número de contacto </strong></label>
+                <textarea class="form-control" name="numeroCon" placeholder="Ingrese número celular para contactarlo..."
+                  ngModel></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-2 btn-block">
+                Solicitar
+              </button>
             </form>
 
-            <button type="submit" class="btn btn-primary mt-2 btn-block" data-toggle="modal"
-              data-target="#exampleModal">
-              Solicitar
-            </button>
 
-            <div class="modal fade" id="exampleModal">
+            <!-- <div class="modal fade" id="exampleModal">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -69,7 +60,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>

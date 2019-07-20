@@ -13,8 +13,11 @@ export class ProfileComponent implements OnInit {
 
   constructor(private pService: ProfileService, private aRoute: ActivatedRoute, private authService: AuthService) { }
 
-  profile: ProfileInterface = {
+  public profiles: ProfileInterface[];
+
+  public profileAux: ProfileInterface = {
     id: '',
+    idUser: '',
     email: '',
     nombre: '',
     apellidos: '',
@@ -25,19 +28,28 @@ export class ProfileComponent implements OnInit {
   uidUser: string;
 
   ngOnInit() {
-    this.authService.isAuth().subscribe(user => {
-      this.uidUser = user.uid;
-    });
-    this.getProfile('lEMA5fK6JfLPAU9ZR4D1');
 
+    this.getListProfiles();
+    this.authService.isAuth().subscribe(user => {
+      console.log('user', user);
+      this.profileAux.idUser = user.uid;
+      console.log(this.profileAux);
+    });
   }
 
-  getProfile(idProfile: string): void {
-    this.pService.getOneProfile(idProfile).subscribe(profile => {
-      console.log(profile);
-      this.profile = profile;
-      console.log(this.profile);
-    });
+  // getProfile(idProfile: string): void {
+  //   this.pService.getOneProfile(idProfile).subscribe(profile => {
+  //     console.log(profile);
+  //     this.profile = profile;
+  //     console.log(this.profile);
+  //   });
+  // }
+
+  getListProfiles() {
+    this.pService.getAllProfiles()
+      .subscribe(profiles => {
+        this.profiles = profiles;
+      });
   }
 
 

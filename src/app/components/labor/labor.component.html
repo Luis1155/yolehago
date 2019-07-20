@@ -4,35 +4,26 @@
     <div class="col-xs-12 col-sm-8 col-md-8 mx-auto">
       <div class="card">
         <div class="card-body">
-          <form>
 
-            <h5>Oficio que realizas</h5>
-            <div class="row">
-              <div class="col form-group text-center" data-toggle="buttons">
+          <form name="formLabor" #formLabor="ngForm" (ngSubmit)="onUpdateLabor(formLabor)">
 
-                <div class="form-check form-check-inline">
-                  <label class="btn btn-outline-success">
-                    <input type="radio" id="labor1" name="labors" style="display: none">
-                    Plomero</label>
-                </div>
+            <div *ngFor="let profile of profiles">
+              <div *ngIf="profile.idUser == this.profileAux.idUser">
+                <input type="hidden" placeholder={{profile.id}} name=id ngModel>
+              </div>
+            </div>
+            <div class="form-row">
 
-                <div class="form-check form-check-inline">
-                  <label class="btn btn-outline-success">
-                    <input type="radio" id="labor2" name="labors" style="display: none">
-                    Generales</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <label class="btn btn-outline-success">
-                    <input type="radio" id="labor3" name="labors" style="display: none">
-                    Electricista</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <label class="btn btn-outline-success" (click)="onclic()">
-                    <input type="radio" id="labor4" name="labors" [value]="labors" style="display: none">
-                    Limpieza</label>
-                </div>
+              <div class="form-group">
+                <label for="categoria"> <strong> Categoria </strong>
+                  <p>Selecciones el oficio que realizas</p>
+                </label>
+                <select name="categoria" class="form-control" placeholder="" ngModel>
+                  <option value="Plormero">Plomero</option>
+                  <option value="Generales">Generales</option>
+                  <option value="Electricista">Electricista</option>
+                  <option value="Limpieza">Limpieza</option>
+                </select>
               </div>
             </div>
 
@@ -40,8 +31,8 @@
               <label for="InputDescripcion">
                 <h5>Experiencias de trabajo</h5>
               </label>
-              <textarea rows="3" class="form-control" id="InputDescripcion"
-                placeholder="Escribe una breve descripción de trabajos que hayas realizado..."></textarea>
+              <textarea rows="3" class="form-control" name="descripcion"
+                placeholder="Escribe una breve descripción de trabajos que hayas realizado..." ngModel></textarea>
             </div>
 
             <label for="InputImagen2">
@@ -49,7 +40,7 @@
             </label>
             <div class="form-group custom-file">
               <label class="custom-file-label" for="InputImagenes">Elegir imagenes de experiencia</label>
-              <input type="file" class="form-control-file custom-file-input" id="InputImagenes">
+              <input type="file" class="form-control-file custom-file-input" id="urlImage">
             </div>
 
             <button type="submit" class="btn btn-primary mt-2 btn-block ">Solicitar</button>

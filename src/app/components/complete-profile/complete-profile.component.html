@@ -4,24 +4,21 @@
     <div class="card">
       <div class="card-body">
 
-        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onSaveProfile(formProfile)">
+        <form name="formProfile" #formProfile="ngForm" (ngSubmit)="onSaveProfileAux(formProfile)">
 
           <div class="form-row">
 
-            <input type="hidden" name="id" [(ngModel)]="this.pService.selectedProfile.id">
-            <input type="hidden" name="email" [(ngModel)]="this.pService.selectedProfile.email">
-            <input type="hidden" name="idUser" [(ngModel)]="this.pService.selectedProfile.idUser">
-            <input type="hidden" name="urlImagen" [(ngModel)]="this.pService.selectedProfile.urlImagen">
+            <input type="hidden" name="id" [(ngModel)]="this.profileAux.id">
 
             <div class="col form-group">
               <label for="nombre"> <strong>Nombre</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar nombre" name="nombre"
-                [(ngModel)]="this.pService.selectedProfile.nombre" #nombre>
+                [(ngModel)]="this.profileAux.nombre">
             </div>
             <div class="col form-group">
               <label for="apellidos"> <strong>Apellidos</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar apellidos" name="apellidos"
-              [(ngModel)]="this.pService.selectedProfile.apellidos" #apellidos>
+              [(ngModel)]="this.profileAux.apellidos">
             </div>
 
           </div>
@@ -29,7 +26,7 @@
           <div class="form-group">
             <label for="celNumero"> <strong>Numero Celular</strong> </label>
             <input type="text" class="form-control" placeholder="Ingresar número celular" name="celNumero"
-              [(ngModel)]="this.pService.selectedProfile.celNumero" #celNumber>
+              [(ngModel)]="this.profileAux.celNumero">
           </div>
 
           <label for="InputImagen2"> <strong>Imagen de perfil</strong> </label>

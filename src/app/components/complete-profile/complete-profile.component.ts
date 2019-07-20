@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { ProfileInterface } from '../../models/profile';
 import { NgForm } from '@angular/forms';
@@ -16,20 +16,24 @@ export class CompleteProfileComponent implements OnInit {
 
   private profiles: ProfileInterface[];
 
-  @ViewChild('nombre') nombre: string;
-  @ViewChild('apellidos') apellidos: string;
-  @ViewChild('celNumber') celNumber: string;
+  public profileAux: ProfileInterface = {
+    idUser: '',
+    email: '',
+    nombre: '',
+    apellidos: '',
+    celNumero: '',
+    urlImagen: ''
+  };
 
   ngOnInit() {
 
     this.getListProfiles();
     this.authService.isAuth().subscribe(user => {
-      this.pService.selectedProfile.idUser = user.uid;
-      this.pService.selectedProfile.email = user.email;
-      this.pService.selectedProfile.urlImagen = 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Ff%2Ff7%2FNeon-logo.svg%2F1200px-Neon-logo.svg.png&f=1';
+      this.profileAux.idUser = user.uid;
+      this.profileAux.email = user.email;
+      this.profileAux.urlImagen = 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F1378%2FPNG%2F512%2Favatardefault_92824.png&f=1';
 
-    })
-
+    });
   }
 
   getListProfiles() {
@@ -39,11 +43,24 @@ export class CompleteProfileComponent implements OnInit {
       });
   }
 
+  onSaveProfileAux(formProfile: NgForm): void{
+    console.log(this.profileAux);
+    this.pService.addProfile(this.profileAux);
+    formProfile.resetForm();
+    this.router.navigate(['profile']);
+  }
+
   onSaveProfile(profileForm: NgForm): void {
     console.log('FORMULARIO', profileForm.value);
     if (profileForm.value.id == null) {
       // New
       this.pService.addProfile(profileForm.value);
+      this.authService.isAuth().subscribe(user => {
+        console.log('USER', user);
+        user.updateProfile({
+          displayName: this.pService.selectedProfile.id
+        });
+      });
     } else {
       // Update
       this.pService.updateProfile(profileForm.value);

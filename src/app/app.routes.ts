@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RequestComponent } from './components/request/request.component';
 import { LaborComponent } from './components/labor/labor.component';
 import { CompleteProfileComponent } from './components/complete-profile/complete-profile.component';
+import { ListRequestComponent } from './components/list-request/list-request.component';
 
 const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const ROUTES: Routes = [
   { path: 'request', component: RequestComponent },
   { path: 'labor', component: LaborComponent },
   { path: 'complete-profile', component: CompleteProfileComponent},
+  { path: 'list-request', component: ListRequestComponent},
   { path: '**', pathMatch:  'full', redirectTo: 'home' }
 ];
 

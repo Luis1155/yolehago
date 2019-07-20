@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-xs-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Numero Cont.</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of requests; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{request.categoria}}</td>
+            <td>{{request.direccion}}</td>
+            <td>{{request.numeroCon}}</td>
+            <td>{{request.descripcion}}</td>
+
+            <ng-template #noAdmin>
+              <td>
+                <button class="btn btn-danger" disabled="true">Delete</button>
+              </td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
