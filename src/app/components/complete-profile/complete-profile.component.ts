@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { ProfileInterface } from '../../models/profile';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-complete-profile',
@@ -12,7 +15,10 @@ import { Router } from '@angular/router';
 })
 export class CompleteProfileComponent implements OnInit {
 
-  constructor(public pService: ProfileService, private authService: AuthService, private router: Router) { }
+  constructor(public pService: ProfileService, private authService: AuthService, private router: Router, private storage: AngularFireStorage) { }
+
+  @ViewChild('imageUser') inputImageUser: ElementRef;
+  urlImage: Observable<string>;
 
   private profiles: ProfileInterface[];
 
@@ -36,6 +42,16 @@ export class CompleteProfileComponent implements OnInit {
       this.profileAux.email = user.email;
       this.profileAux.urlImagen = 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F1378%2FPNG%2F512%2Favatardefault_92824.png&f=1';
     });
+  }
+
+  onUpload(e) {
+    // console.log('subir', e.target.files[0]);
+    const id = Math.random().toString(36).substring(2);
+    const file = e.target.files[0];
+    const filePath = `uploads/profile_${id}`;
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
   }
 
   getListProfiles() {

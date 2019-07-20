@@ -32,11 +32,11 @@
           <label for="InputImagen2"> <strong>Imagen de perfil</strong> </label>
           <div class="form-group custom-file">
             <label class="custom-file-label">Elegir imagen de perfil</label>
-            <input type="file" class="form-control-file custom-file-input" id="urlImagen">
+            <input type="file" class="form-control-file custom-file-input" (change)="onUpload($event)">
           </div>
 
           <br>
-
+          <input #imageUser type="hidden" [value]="urlImage | async">
           <button type="submit" class="btn btn-primary mt-2 btn-block">Guardar</button>
         </form>
 
