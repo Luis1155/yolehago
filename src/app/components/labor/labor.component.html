@@ -23,7 +23,7 @@
                 <p>Selecciona el oficio que realizas</p>
               </label>
               <select name="oficio" class="form-control" placeholder=""
-                [(ngModel)]="this.pService.selectedProfile.oficio" required >
+                [(ngModel)]="this.pService.selectedProfile.oficio" required>
                 <option value="Plormero">Plomero</option>
                 <option value="Generales">Generales</option>
                 <option value="Electricista">Electricista</option>
@@ -44,12 +44,19 @@
           <label for="InputImagen2">
             <h5>Anexos</h5>
           </label>
+
           <div class="form-group custom-file">
-            <label class="custom-file-label" for="InputImagenes">Elegir imagenes de experiencia</label>
-            <input type="file" class="form-control-file custom-file-input" id="urlImage" >
+            <label class="custom-file-label">Elegir imagenes de experiencia</label>
+            <input type="file" class="form-control-file custom-file-input" (change)="onUpload($event)">
           </div>
 
-          <button type="submit" class="btn btn-primary mt-2 btn-block ">Guardar</button>
+          <input #imageUser type="hidden" [value]="urlImage | async">
+          <button *ngIf="urlImage | async; else btnDisabled" type="submit"
+            class="btn btn-primary mt-2 btn-block ">Guardar</button>
+          <ng-template #btnDisabled>
+            <p class="text-center">Imagen</p>
+            <button disabled=true class="btn btn-secondary mt-2 btn-block">Guardar</button>
+          </ng-template>
 
         </form>
 

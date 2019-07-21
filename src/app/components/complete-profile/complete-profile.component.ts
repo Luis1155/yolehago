@@ -19,7 +19,6 @@ export class CompleteProfileComponent implements OnInit {
 
   @ViewChild('imageUser') inputImageUser: ElementRef;
   urlImage: Observable<string>;
-  uploadPercent: Observable<number>;
 
   private profiles: ProfileInterface[];
 
@@ -51,7 +50,6 @@ export class CompleteProfileComponent implements OnInit {
     const filePath = `uploads/profile_${id}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
-    this.uploadPercent = task.percentageChanges();
     task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
     // this.profileAux.urlImagen = this.inputImageUser.nativeElement.value;
 

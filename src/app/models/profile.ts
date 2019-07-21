@@ -11,4 +11,5 @@ export interface ProfileInterface {
 
   oficio ?: string;
   experiencia ?: string;
+  anexo ?: string;
 }

@@ -13,6 +13,7 @@
             <h5> {{profile.celNumero}} </h5>
             <p *ngIf="profile.oficio">Oficio: {{profile.oficio}} </p>
             <p> {{profile.email}} </p>
+            <img src="{{profile.anexo}}" style="width: 70%;">
             
             <input type="hidden" class="form-control" name=id [(ngModel)]="this.profileAux.id">
           </div>
