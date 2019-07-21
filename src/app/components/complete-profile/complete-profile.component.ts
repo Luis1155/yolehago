@@ -40,7 +40,6 @@ export class CompleteProfileComponent implements OnInit {
     this.authService.isAuth().subscribe(user => {
       this.profileAux.idUser = user.uid;
       this.profileAux.email = user.email;
-      this.profileAux.urlImagen = 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F1378%2FPNG%2F512%2Favatardefault_92824.png&f=1';
     });
   }
 
@@ -52,6 +51,8 @@ export class CompleteProfileComponent implements OnInit {
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+    // this.profileAux.urlImagen = this.inputImageUser.nativeElement.value;
+
   }
 
   getListProfiles() {
@@ -71,10 +72,11 @@ export class CompleteProfileComponent implements OnInit {
   onSaveProfile(profileForm: NgForm): void {
     if (profileForm.value.id == null) {
 
-      console.log('ID', profileForm.value.id);
+      // console.log('ID', profileForm.value.id);
       this.profileAux.nombre = profileForm.value.nombre;
       this.profileAux.apellidos = profileForm.value.apellidos;
       this.profileAux.celNumero = profileForm.value.celNumero;
+      this.profileAux.urlImagen = this.inputImageUser.nativeElement.value;
       console.log('ProfileAux', this.profileAux);
       this.pService.addProfile(this.profileAux);
 
@@ -83,8 +85,9 @@ export class CompleteProfileComponent implements OnInit {
       this.profileAux.apellidos = profileForm.value.apellidos;
       this.profileAux.celNumero = profileForm.value.celNumero;
       this.profileAux.id = profileForm.value.id;
+      this.profileAux.urlImagen = this.inputImageUser.nativeElement.value;
 
-      console.log('FORMULARIO', profileForm.value);
+      // console.log('FORMULARIO', profileForm.value);
       console.log('UpdateProfile', this.profileAux);
       this.pService.updateProfile(this.profileAux);
 

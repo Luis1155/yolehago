@@ -30,9 +30,9 @@ export class ProfileComponent implements OnInit {
 
     this.getListProfiles();
     this.authService.isAuth().subscribe(user => {
-      console.log('user', user);
+      // console.log('user', user);
       this.profileAux.idUser = user.uid;
-      console.log(this.profileAux);
+      // console.log(this.profileAux);
     });
   }
 

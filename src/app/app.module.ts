@@ -21,7 +21,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { ListRequestComponent } from './components/list-request/list-request.component';
 import { ListWorkersComponent } from './components/list-workers/list-workers.component';
 import { HelpComponent } from './components/help/help.component'
@@ -47,7 +47,7 @@ import { HelpComponent } from './components/help/help.component'
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
