@@ -36,8 +36,12 @@
           </div>
 
           <br>
-          <input #imageUser type="text" [value]="urlImage | async">
-          <button type="submit" class="btn btn-primary mt-2 btn-block">Guardar</button>
+          <input #imageUser type="hidden" [value]="urlImage | async">
+          <button *ngIf="urlImage | async; else btnDisabled"  type="submit" class="btn btn-primary mt-2 btn-block">Guardar</button>
+          <ng-template #btnDisabled>
+              <p class="text-center">Imagen</p>
+              <button disabled=true class="btn btn-secondary mt-2 btn-block">Guardar</button>
+          </ng-template>
         </form>
 
       </div>
