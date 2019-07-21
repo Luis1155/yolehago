@@ -13,12 +13,12 @@
             <div class="col form-group">
               <label for="nombre"> <strong>Nombre</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar nombre" name="nombre"
-                [(ngModel)]="this.pService.selectedProfile.nombre">
+                [(ngModel)]="this.pService.selectedProfile.nombre" required>
             </div>
             <div class="col form-group">
               <label for="apellidos"> <strong>Apellidos</strong> </label>
               <input type="text" class="form-control" placeholder="Ingresar apellidos" name="apellidos"
-              [(ngModel)]="this.pService.selectedProfile.apellidos">
+              [(ngModel)]="this.pService.selectedProfile.apellidos" required>
             </div>
 
           </div>
@@ -26,13 +26,13 @@
           <div class="form-group">
             <label for="celNumero"> <strong>Numero Celular</strong> </label>
             <input type="text" class="form-control" placeholder="Ingresar número celular" name="celNumero"
-              [(ngModel)]="this.pService.selectedProfile.celNumero">
+              [(ngModel)]="this.pService.selectedProfile.celNumero" required>
           </div>
 
           <label for="InputImagen2"> <strong>Imagen de perfil</strong> </label>
           <div class="form-group custom-file">
             <label class="custom-file-label">Elegir imagen de perfil</label>
-            <input type="file" class="form-control-file custom-file-input" (change)="onUpload($event)">
+            <input type="file" class="form-control-file custom-file-input" (change)="onUpload($event)" required>
           </div>
 
           <br>

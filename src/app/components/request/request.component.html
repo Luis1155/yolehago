@@ -14,53 +14,52 @@
                   <label for="categoria"> <strong> Categoria </strong>
                     <p>Selecciones la que más se adecua a su necesidad</p>
                   </label>
-                  <select name="categoria" class="form-control" placeholder="" ngModel>
+                  <select name="categoria" class="form-control" placeholder="" ngModel required>
                     <option value="Plormero">Plomero</option>
                     <option value="Generales">Generales</option>
                     <option value="Electricista">Electricista</option>
                     <option value="Limpieza">Limpieza</option>
                   </select>
+                  <div class="invalid-feedback">
+                    Seleccione dato
+                  </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="descripcion"> <strong> Descripción </strong></label>
                 <textarea rows="3" class="form-control" name="descripcion"
-                  placeholder="Los detalles del servicio que requieres..." ngModel></textarea>
+                  placeholder="Los detalles del servicio que requieres..." ngModel required></textarea>
+                <div class="invalid-feedback">
+                  Ingresa descripcion
+                </div>
               </div>
               <div class="form-group">
                 <label for="direccion"> <strong> Dirección </strong></label>
-                <textarea class="form-control" name="direccion" placeholder="Ingrese lugar donde se realizara..."
-                  ngModel></textarea>
+                <input class="form-control" name="direccion" placeholder="Ingrese lugar donde se realizara..." ngModel
+                  required>
+                <div class="invalid-feedback">
+                  Ingresa direccion
+                </div>
               </div>
 
               <div class="form-group">
                 <label for="numeroCon"> <strong> Número de contacto </strong></label>
-                <textarea class="form-control" name="numeroCon" placeholder="Ingrese número celular para contactarlo..."
-                  ngModel></textarea>
+                <input class="form-control" name="numeroCon" placeholder="Ingrese número celular para contactarlo..."
+                  ngModel required>
+                <div class="invalid-feedback">
+                  Ingresa numero de contacto
+                </div>
+              </div>
+
+              <div *ngIf="campoVacio"  class="alert text-center alert-danger alert-dismissible fade show" role="alert">
+                <h5>Hay campos vacios!</h5>
               </div>
 
               <button type="submit" class="btn btn-primary mt-2 btn-block">
                 Solicitar
               </button>
             </form>
-
-
-            <!-- <div class="modal fade" id="exampleModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Solicitud enviada</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Espere a que su solicitud sea aceptada.
-                  </div>
-                </div>
-              </div>
-            </div> -->
 
           </div>
         </div>
